@@ -34,12 +34,12 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
 
     viewer_protocol_policy = "redirect-to-https"
-    min_ttl                = 0
-    default_ttl            = 3600
-    max_ttl                = 86400
+    min_ttl                = "${var.min_ttl}"
+    default_ttl            = "${var.default_ttl}"
+    max_ttl                = "${var.max_ttl}"
   }
 
-  price_class = "PriceClass_100"
+  price_class = "${var.price_class}"
 
   restrictions {
     geo_restriction {
@@ -51,7 +51,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   viewer_certificate {
     acm_certificate_arn      = "${data.aws_acm_certificate.cert.arn}"
-    ssl_support_method       = "sni-only"
-    minimum_protocol_version = "TLSv1"
+    ssl_support_method       = "${var.ssl_support_method}"
+    minimum_protocol_version = "${var.minimum_protocol_version}"
   }
 }
