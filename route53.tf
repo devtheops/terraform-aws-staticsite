@@ -1,4 +1,5 @@
 resource "aws_route53_record" "record" {
+  count   = "${length(var.domain) > 0 ? 1 : 0}"
   zone_id = "${var.host_record}"
   name    = "${var.domain}"
   type    = "A"
