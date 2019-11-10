@@ -47,34 +47,33 @@ variable "enable_s3_versioning" {
   default     = false
 }
 
-
 variable "min_ttl" {
   description = "Minimum TTL that can be set on an object."
-  default     =  0
+  default     = 0
 }
 
 variable "default_ttl" {
   description = "TTL of an object when one is not set."
-  default     =  3600
+  default     = 3600
 }
 
 variable "max_ttl" {
   description = "Maximum TTL that can be set on an object"
-  default     =  86400
+  default     = 86400
 }
-
 
 variable "price_class" {
   description = "The cloudfront price class to use."
-  default = "PriceClass_100"
+  default     = "PriceClass_100"
 }
 
 variable "ssl_support_method" {
   description = "The type of SLL method you want to support."
-  default = "sni-only"
+  default     = "sni-only"
 }
 
 variable "minimum_protocol_version" {
   description = "minimum protocol version to require."
-  default = "TLSv1"
+  default     = "TLSv1"
 }
+
